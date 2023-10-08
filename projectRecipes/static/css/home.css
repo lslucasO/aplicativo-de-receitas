@@ -21,7 +21,6 @@ body{
     border: none;
     background: none;
     outline: none;
-    
     padding: 5px;
     width: 500px;
 }
@@ -34,9 +33,18 @@ body{
     outline: none;
 }
 
-.card{
-    background-color: black;
-    height: 500px;
-    width: 300px;
+.card-container{
+    padding: 40px;
+    margin-top: 30px;
 }
 
+.card{
+    background-color: white;
+    height: 500px;
+    width: 350px;
+}
+
+.img-card{
+    width: 350px;
+    height: 220px;
+}
