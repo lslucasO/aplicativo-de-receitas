@@ -9,12 +9,14 @@ body{
 }
 
 .search-form{
-    background-color: white;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.04);
     padding: 7px;
     border: 2px solid black;
     max-width: 64rem;
     border-radius: 5px;
+    background-color: white;
 }
+
 
 .search-input{
     border: none;
@@ -26,8 +28,10 @@ body{
 }
 
 .search-btn{
+    height: 10px;
     cursor: pointer;
     border: none;
     background: none;
     outline: none;
 }
+
