@@ -42,7 +42,7 @@ body{
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.363);
     cursor: pointer;
     background-color: white;
-    height: 550px;
+    height: 500px;
     width: 350px;
     
 }
@@ -87,7 +87,7 @@ body{
 
 .modos-preparo-container{
     padding: 20px;
-    height: 80px;
+    height: 40px;
     background-color: rgba(173, 216, 230, 0.249);
 }
 
@@ -98,7 +98,16 @@ body{
 }
 
 .modos{
+    margin-bottom: 5px;
     font-weight: bold;
     font-size: 0.85em;
 }
+
+.info-preparo{
+    display: flex;
+    gap: 110px;
+    align-items: center;
+    justify-content: center;
+}
+
 
