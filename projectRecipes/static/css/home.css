@@ -42,7 +42,7 @@ body{
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.363);
     cursor: pointer;
     background-color: white;
-    height: 500px;
+    height: 550px;
     width: 350px;
     
 }
@@ -77,7 +77,6 @@ body{
 }
 
 .descricao{
-    margin-bottom: 20px;
     margin-top: 20px;
 }
 
@@ -87,8 +86,19 @@ body{
 }
 
 .modos-preparo-container{
-    height: 112px;
-    background-color: rgba(128, 128, 128, 0.538);
+    padding: 20px;
+    height: 80px;
+    background-color: rgba(173, 216, 230, 0.249);
 }
 
+.modos-preparo{
+    gap: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.modos{
+    font-weight: bold;
+    font-size: 0.85em;
+}
 
