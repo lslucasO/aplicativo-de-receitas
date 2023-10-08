@@ -42,7 +42,7 @@ body{
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.363);
     cursor: pointer;
     background-color: white;
-    height: 500px;
+    height: 488px;
     width: 350px;
     
 }
@@ -108,6 +108,15 @@ body{
     gap: 110px;
     align-items: center;
     justify-content: center;
+}
+
+
+.btn-ver-mais{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    width: 350px;
+    height: 40px;
 }
 
 
