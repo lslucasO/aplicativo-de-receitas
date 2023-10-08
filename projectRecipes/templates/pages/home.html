@@ -9,25 +9,28 @@
 </head>
 <body>
     {% include 'partials/header.html' %}
-    <div class="search-container">
-        <form action="" class="search-form">
-            <input class="search-input" name="search" type="search" placeholder="Digite aqui para buscar..." >
-            <button class="search-btn"  type="submit"><i class="fas fa-search"></i></button>
-        </form>
-    </div>
+    {% include 'partials/search.html' %}
+
     <div class="card-container">
         <div class="card">
-            <figure class="img-card-container"></figure>
+            <figure class="img-card-container">
+                <img class="img-card" src={% static "img/" %} alt="">
+            </figure>
             <article class="descricao-container">
-                <p class="titulo"></p>
+                <p class="titulo-receita">Duis ipsum est duis culpa.</p>
                 <span>
-                    <p class="autor"></p>
-                    <p class="data"></p>
-                    <p class="topico"></p>
+                    <p id="autor" class="info">Autor</p>
+                    <p id="data" class="info">Data</p>
+                    <p id="topico" class="info">Topico</p>
                 </span>
                 <p class="descricao-receita"></p>
             </article>
+            <section class="modos-preparo-container">
+                <p id="preparo" class="modos">Preparo</p>
+                <p id="porcoes" class="modos">Porções</p>
+            </section>
         </div>
     </div>
+
 </body>
 </html>
