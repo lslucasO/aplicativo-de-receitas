@@ -1,5 +1,5 @@
-.container{
-    
+.search-container{
+    margin-top: 30px;
     display: flex;
     justify-content: center;
 }
@@ -8,10 +8,26 @@ body{
     background-color: #e0e0e0;;
 }
 
-input{
+.search-form{
+    background-color: white;
+    padding: 7px;
+    border: 2px solid black;
+    max-width: 64rem;
     border-radius: 5px;
+}
+
+.search-input{
+    border: none;
+    background: none;
+    outline: none;
+    
     padding: 5px;
-    margin-top: 10px;
-    height: 20px;
-    width: 450px;
+    width: 500px;
+}
+
+.search-btn{
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
 }
