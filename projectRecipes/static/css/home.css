@@ -39,12 +39,56 @@ body{
 }
 
 .card{
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.363);
+    cursor: pointer;
     background-color: white;
     height: 500px;
     width: 350px;
+    
+}
+
+.card:hover{
+    transform: scale(1.05);
 }
 
 .img-card{
     width: 350px;
     height: 220px;
 }
+
+.info-container{
+    padding: 20px;
+}
+
+.titulo{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.topicos-container{
+    margin-top: 10px;
+    gap: 70px;
+    justify-content: center;
+    display: flex;
+}
+
+.info{
+    font-size: 0.9em;
+}
+
+.descricao{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.descricao > p {
+    font-size: 1em;
+    
+}
+
+.modos-preparo-container{
+    height: 112px;
+    background-color: rgba(128, 128, 128, 0.538);
+}
+
+
