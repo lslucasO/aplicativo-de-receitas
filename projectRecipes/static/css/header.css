@@ -1,1 +1,32 @@
- 
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;   
+}
+
+header{
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.167);
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    height: 100px;
+    color: white;
+}
+
+figure{
+    display: flex;
+    margin: auto;
+    cursor: pointer;
+}
+
+
+h1{
+    cursor: pointer;
+}
+
+.container{
+    gap: 15px;
+    display: flex;
+    padding: 20px;
+    margin: auto;
+}
