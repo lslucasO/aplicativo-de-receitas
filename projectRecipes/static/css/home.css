@@ -35,19 +35,19 @@ body{
 
 .card-container{
     margin-left: 50px;
-    grid-template-columns: 400px 400px 400px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     display: grid;
     padding: 40px;
     margin-top: 30px;
 }
 
 .card{
-    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.363);
-    cursor: pointer;
+    margin-bottom: 40px;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.362);
     background-color: white;
     height: 488px;
     width: 350px;
-    
+    transition: 0.5s;
 }
 
 .card:hover{
