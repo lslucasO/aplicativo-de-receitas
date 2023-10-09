@@ -1,0 +1,89 @@
+.card-container{
+    margin-left: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    display: grid;
+    padding: 40px;
+    margin-top: 30px;
+}
+
+.card{
+    margin-bottom: 40px;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.362);
+    background-color: white;
+    height: 488px;
+    width: 350px;
+    transition: 0.5s;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+.img-card{
+    width: 350px;
+    height: 220px;
+}
+
+.info-container{
+    padding: 20px;
+}
+
+.titulo{
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.topicos-container{
+    margin-top: 10px;
+    gap: 70px;
+    justify-content: center;
+    display: flex;
+}
+
+.info{
+    font-size: 0.9em;
+}
+
+.descricao{
+    margin-top: 20px;
+}
+
+.descricao > p {
+    font-size: 1em;
+    
+}
+
+.modos-preparo-container{
+    padding: 20px;
+    height: 40px;
+    background-color: rgba(173, 216, 230, 0.249);
+}
+
+.modos-preparo{
+    gap: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.modos{
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.info-preparo{
+    display: flex;
+    gap: 110px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.btn-ver-mais{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    width: 350px;
+    height: 40px;
+}
+
