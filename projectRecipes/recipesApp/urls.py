@@ -4,5 +4,5 @@ from recipesApp import views
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('recipe/', views.recipe, name="recipe")
+    path('recipes/<int:id>/', views.recipes, name="recipes")
 ]

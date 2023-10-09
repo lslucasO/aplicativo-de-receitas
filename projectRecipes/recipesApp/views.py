@@ -4,5 +4,5 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'recipesApp/pages/home.html')
 
-def recipe(request):
-    return render(request, 'recipesApp/pages/recipe.html')
+def recipes(request, id):
+    return render(request, 'recipesApp/pages/recipes.html')
