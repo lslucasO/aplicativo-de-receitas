@@ -6,6 +6,20 @@
     margin-top: 30px;
 }
 
+
+.card-view{
+    margin: auto;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.362);
+    background-color: white;
+    height: 820px;
+    width: 600px;
+}
+
+.img-card-view{
+    width: 600px;
+}
+
+
 .card{
     margin-bottom: 60px;
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.362);
