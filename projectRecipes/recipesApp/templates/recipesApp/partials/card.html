@@ -3,7 +3,7 @@
 
 <div class="card">
     <figure class="img-card-container">
-        <img class="img-card" src="{{recipe.cover.url}}" alt="">
+        <a href="{% url 'recipes-view' recipe.id %}"><img class="img-card" src="{{recipe.cover.url}}" alt=""></a>
     </figure>
     <div class="info-container">
         <p class="titulo">{{recipe.title}}</p>

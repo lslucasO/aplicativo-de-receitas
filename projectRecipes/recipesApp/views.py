@@ -3,7 +3,7 @@ from utils.recipesApp.factory import make_recipe
 # Create your views here.
 def home(request):
     context = {
-        'recipes': [make_recipe() for _ in range(6)],
+        'recipes': [make_recipe() for _ in range(9)],
     }
     return render(request, 'recipesApp/pages/home.html', context)
 

@@ -6,20 +6,6 @@
     margin-top: 30px;
 }
 
-
-.card-view{
-    margin: auto;
-    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.362);
-    background-color: white;
-    height: fit-content;
-    width: 600px;
-}
-
-.img-card-view{
-    width: 600px;
-}
-
-
 .card{
     margin-bottom: 60px;
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.362);
@@ -50,13 +36,6 @@
 .topicos-container{
     margin-top: 10px;
     gap: 70px;
-    justify-content: center;
-    display: flex;
-}
-
-.topicos-container-view{
-    margin-top: 10px;
-    gap: 50px;
     justify-content: center;
     display: flex;
 }
@@ -129,6 +108,34 @@
     font-size: 0.7em;
     color: gray;
 }
+
+/* -------------------------------------------------------   */
+
+.card-view{
+    margin: auto;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.362);
+    background-color: white;
+    height: fit-content;
+    width: 600px;
+}
+
+
+.img-card-view{
+    width: 600px;
+}
+
+
+.topicos-container-view{
+    margin-top: 10px;
+    gap: 50px;
+    justify-content: center;
+    display: flex;
+}
+
+.como-preparar-container-view{
+    padding: 25px;
+}
+
 
 #topico-view{
     font-size: 0.9em;
