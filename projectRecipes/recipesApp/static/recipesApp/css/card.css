@@ -54,6 +54,21 @@
     display: flex;
 }
 
+.topicos-container-view{
+    margin-top: 10px;
+    gap: 50px;
+    justify-content: center;
+    display: flex;
+}
+
+
+.topicos-container-view{
+    margin-top: 10px;
+    justify-content: center;
+    display: flex;
+    gap: 150px;
+}
+
 .info{
     cursor: pointer;
     font-size: 0.9em;
@@ -112,5 +127,23 @@
 #data, #autor{
     width: 80px;
     font-size: 0.7em;
+    color: gray;
+}
+
+#topico-view{
+    font-size: 0.9em;
+    text-decoration: none;
+    color: rgb(29, 199, 255);
+}
+
+#data-view {
+    width: 350px;
+    font-size: 0.8em;
+    color: gray;
+}
+
+#autor-view{
+    width: 550px;
+    font-size: 0.8em;
     color: gray;
 }
