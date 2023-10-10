@@ -1,20 +1,6 @@
+{% extends 'global/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="{% static 'recipesApp/css/home.css' %}">
-</head>
-<body>
-    {% include 'recipesApp/partials/header.html' %}
-    {% include 'recipesApp/partials/search.html' %}
-    <div class="card-container">
-        {% include 'recipesApp/partials/card.html' %}
-        {% include 'recipesApp/partials/card.html' %}
-        {% include 'recipesApp/partials/card.html' %}
-    </div>
-    {% include 'recipesApp/partials/footer.html' %}
-</body>
-</html>
+
+
+{% block content %}
+{% endblock content %}
