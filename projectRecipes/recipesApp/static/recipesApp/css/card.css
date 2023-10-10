@@ -41,6 +41,7 @@
 }
 
 .info{
+    cursor: pointer;
     font-size: 0.9em;
 }
 
@@ -87,3 +88,12 @@
     height: 40px;
 }
 
+#topico{
+
+    text-decoration: none;
+    color: rgb(29, 199, 255);
+}
+
+#data, #autor{
+    color: gray;
+}
