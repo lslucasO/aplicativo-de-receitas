@@ -11,7 +11,7 @@
     margin: auto;
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.362);
     background-color: white;
-    height: 820px;
+    height: fit-content;
     width: 600px;
 }
 
