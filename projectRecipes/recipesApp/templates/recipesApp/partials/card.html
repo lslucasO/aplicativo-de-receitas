@@ -3,17 +3,17 @@
 
 <div class="card">
     <figure class="img-card-container">
-        <img class="img-card" src={% static "recipesApp/img/hamburguer.webp" %} alt="">
+        <img class="img-card" src="{{recipe.cover.url}}" alt="">
     </figure>
     <div class="info-container">
-        <p class="titulo">Duis ipsum est duis culpa.</p>
+        <p class="titulo">{{recipe.title}}</p>
         <article class="topicos-container">
-            <p id="autor" class="info"><i class="fas fa-light fa-user"></i> Autor</p>
-            <p id="data" class="info"><i class="fas fa-light fa-calendar-days"></i> Data</p>
-            <p id="topico" class="info"><i class="fas fa-light fa-plate-wheat"></i> Topico</p>
+            <p id="autor" class="info"><i class="fas fa-light fa-user"></i> {{recipe.author.first_name}} {{recipe.author.last_name}}</p>
+            <p id="data" class="info"><i class="fas fa-light fa-calendar-days"></i> {{recipe.created_at|date:"d/m/Y às H:i:s"}}</p>
+            <p id="topico" class="info"><i class="fas fa-light fa-plate-wheat"></i> {{recipe.category.name}}</p>
         </article>
         <div class="descricao">
-            <p>Proident qui est officia do sit ad Lorem ullamco.</p>
+            <p>{{recipe.description}}</p>
         </div>
     </div>
     <div class="modos-preparo-container">
@@ -22,8 +22,8 @@
             <p id="porcoes" class="modos"><i class="fas fa-light fa-pizza-slice"></i> Porções</p>
         </section>
         <section class="info-preparo">
-            <p class="info">0 Minutos</p>
-            <p class="info">0 Porções</p>
+            <p class="info">{{recipe.preparation_time}} {{recipe.preparation_time_unit}}</p>
+            <p class="info">{{recipe.servings}} {{recipe.servings_unit}}</p>
         </section>
     </div>
     <div class="btn-container">
