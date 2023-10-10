@@ -1,5 +1,11 @@
 {% load static %}
-<title>{% block title %}Receitas{% endblock title %}</title>
+<html lang="pt-BR">
+
+<head>
+    {% include 'recipesApp/partials/head.html' %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
 <body>
     {% include 'recipesApp/partials/header.html' %}
     {% include 'recipesApp/partials/search.html' %}
