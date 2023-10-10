@@ -1,3 +1,13 @@
 {% load static %}
-{% include 'recipesApp/partials/header.html' %}
-{% include 'recipesApp/partials/search.html' %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Receitas{% endblock title %}</title>
+</head>
+<body>
+    {% include 'recipesApp/partials/header.html' %}
+    {% include 'recipesApp/partials/search.html' %}
+</body>
+</html>
