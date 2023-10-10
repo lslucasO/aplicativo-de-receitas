@@ -1,6 +1,7 @@
 {% extends 'global/base.html' %}
 {% load static %}
-
-
-{% block content %}
-{% endblock content %}
+<body>
+    {% block content %}
+    {% include 'recipesApp/partials/card.html' %}
+    {% endblock content %}
+</body>

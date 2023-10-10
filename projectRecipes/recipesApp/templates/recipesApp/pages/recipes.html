@@ -1,14 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe</title>
-    <link rel="stylesheet" href="{% static 'recipesApp/css/recipes.css' %}">
-</head>
+{% extends 'global/base.html'  %}
 <body>
-    {% include 'recipesApp/partials/header.html' %}
     <div class="card-container">
         <div class="card">
             <figure class="img-card-container">
