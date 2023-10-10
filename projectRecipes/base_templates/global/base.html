@@ -3,8 +3,14 @@
 <body>
     {% include 'recipesApp/partials/header.html' %}
     {% include 'recipesApp/partials/search.html' %}
-    {% block content %}
-    {% endblock content %}
+    <div class="card-container">
+        {% block content %}
+        {% endblock content %}    
+    </div>
+    <div class="card-container-view">
+        {% block content-card-view %}
+        {% endblock content-card-view %}
+    </div>
     {% include 'recipesApp/partials/footer.html' %}
 </body>
 </html>
