@@ -1,0 +1,10 @@
+{% extends 'global/base.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content-card %}
+{% for recipe in recipes %}
+{% include 'recipesApp/partials/card.html' %}
+{% endfor %}
+{% endblock content-card %}
+
