@@ -31,7 +31,11 @@
         </section>
     </div>
 
-    <div class="como-preparar-container-view">
+    <div class="como-preparar-container-view">  
+    {% if recipe.preparation_steps_is_html %}
+        {{recipe.preparation_steps|safe}}
+    {% else %}     
         {{recipe.preparation_steps|linebreaksbr}}
+    {% endif %}
     </div>
 </div>
