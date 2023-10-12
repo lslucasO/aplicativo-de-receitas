@@ -2,9 +2,11 @@
 <link rel="stylesheet" href="{% static 'recipesApp/css/card.css' %}">
 
 <div class="card-view">
-    <figure class="img-card-container">
-        <img class="img-card-view" src="{{recipe.cover.url}}" alt="">
-    </figure>
+    {% if recipe.cover %}
+        <figure class="img-card-container">
+            <img class="img-card-view" src="{{recipe.cover.url}}" alt="">
+        </figure>
+    {% endif %}
     <div class="info-container">
         <p class="titulo">{{recipe.title}}</p>
         <article class="topicos-container-view">
