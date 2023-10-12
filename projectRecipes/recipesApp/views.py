@@ -6,6 +6,7 @@ from .models import *
 
 def home(request):
     recipes = Recipe.objects.filter(is_published=True).order_by('-id')
+    
     context = {'recipes': recipes}
     return render(request, 'recipesApp/pages/home.html', context)
 
@@ -23,7 +24,13 @@ def category(request, category_id):
 
 
 def recipe(request, id):
+    
+    recipes = Recipe.objects.filter(
+        pk = id,
+        is_published=True,
+    ).order_by('-id').first()
+    
     context = {
-        'recipe': make_recipe(),
+        'recipe': recipes,
     }
     return render(request, 'recipesApp/pages/recipes-view.html', context)
