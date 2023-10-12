@@ -1,41 +1,42 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'recipesApp/css/card.css' %}">
 
-<div class="card">
-    {% if recipe.cover %}
-        <figure class="img-card-container">
-            <a href="{% url 'recipes-view' recipe.id %}"><img class="img-card" src="{{recipe.cover.url}}" alt=""></a>
-        </figure>
-    {% endif %}
-    <div class="info-container">
-        <p class="titulo">{{recipe.title}}</p>
-        <article class="topicos-container">
-            {% if recipe.author.first_name and recipe.author.last_name %} 
-                <p id="autor" class="info"><i class="fas fa-light fa-user"></i> {{recipe.author.first_name}} {{recipe.author.last_name}}</p>
-            {% else %}
-                <p id="autor" class="info"><i class="fas fa-light fa-user"></i> {{recipe.author}}</p>
-            {% endif %}
-            <p id="data" class="info"><i class="fas fa-light fa-calendar-days"></i> {{recipe.created_at|date:"d/m/Y às H:i:s"}}</p>
-            <a style="text-decoration: none;" href="{% url 'category' recipe.category.id %}">
-                <p id="topico" class="info"><i class="fas fa-light fa-plate-wheat"></i> {{recipe.category.name}}</p>
-            </a>
-        </article>
-        <div class="descricao">
-            <p>{{recipe.description}}</p>
+{% if recipe.is_published %}
+    <div class="card">
+        {% if recipe.cover %}
+            <figure class="img-card-container">
+                <a href="{% url 'recipes-view' recipe.id %}"><img class="img-card" src="{{recipe.cover.url}}" alt=""></a>
+            </figure>
+        {% endif %}
+        <div class="info-container">
+            <p class="titulo">{{recipe.title}}</p>
+            <article class="topicos-container">
+                {% if recipe.author.first_name and recipe.author.last_name %} 
+                    <p id="autor" class="info"><i class="fas fa-light fa-user"></i> {{recipe.author.first_name}} {{recipe.author.last_name}}</p>
+                {% else %}
+                    <p id="autor" class="info"><i class="fas fa-light fa-user"></i> {{recipe.author}}</p>
+                {% endif %}
+                <p id="data" class="info"><i class="fas fa-light fa-calendar-days"></i> {{recipe.created_at|date:"d/m/Y às H:i:s"}}</p>
+                <a style="text-decoration: none;" href="{% url 'category' recipe.category.id %}">
+                    <p id="topico" class="info"><i class="fas fa-light fa-plate-wheat"></i> {{recipe.category.name}}</p>
+                </a>
+            </article>
+            <div class="descricao">
+                <p>{{recipe.description}}</p>
+            </div>
+        </div>
+        <div class="modos-preparo-container">
+            <section class="modos-preparo">
+                <p id="preparo" class="modos"><i class="fas fa-light fa-clock"></i> Preparo</p>
+                <p id="porcoes" class="modos"><i class="fas fa-light fa-pizza-slice"></i> Porções</p>
+            </section>
+            <section class="info-preparo">
+                <p class="info">{{recipe.preparation_time}} {{recipe.preparation_time_unit}}</p>
+                <p class="info">{{recipe.servings}} {{recipe.servings_time}}</p>
+            </section>
+        </div>
+        <div class="btn-container">
+            <a href="recipes-view/1"><button class="btn-ver-mais"><i class="fas fa-light fa-eye"></i> ver mais...</button></a>
         </div>
     </div>
-    <div class="modos-preparo-container">
-        <section class="modos-preparo">
-            <p id="preparo" class="modos"><i class="fas fa-light fa-clock"></i> Preparo</p>
-            <p id="porcoes" class="modos"><i class="fas fa-light fa-pizza-slice"></i> Porções</p>
-        </section>
-        <section class="info-preparo">
-            <p class="info">{{recipe.preparation_time}} {{recipe.preparation_time_unit}}</p>
-            <p class="info">{{recipe.servings}} {{recipe.servings_time}}</p>
-        </section>
-    </div>
-    <div class="btn-container">
-        <a href="recipes-view/1"><button class="btn-ver-mais"><i class="fas fa-light fa-eye"></i> ver mais...</button></a>
-    </div>
-</div>
-
+{% endif %}
