@@ -8,7 +8,7 @@
     <div class="info-container">
         <p class="titulo">{{recipe.title}}</p>
         <article class="topicos-container">
-            <p id="autor" class="info"><i class="fas fa-light fa-user"></i> {{recipe.author.first_name}} {{recipe.author.last_name}}</p>
+            <p id="autor" class="info"><i class="fas fa-light fa-user"></i> {{recipe.author}} {{recipe.author.last_name}}</p>
             <p id="data" class="info"><i class="fas fa-light fa-calendar-days"></i> {{recipe.created_at|date:"d/m/Y às H:i:s"}}</p>
             <p id="topico" class="info"><i class="fas fa-light fa-plate-wheat"></i> {{recipe.category.name}}</p>
         </article>
@@ -23,7 +23,7 @@
         </section>
         <section class="info-preparo">
             <p class="info">{{recipe.preparation_time}} {{recipe.preparation_time_unit}}</p>
-            <p class="info">{{recipe.servings}} {{recipe.servings_unit}}</p>
+            <p class="info">{{recipe.servings}} {{recipe.servings_time}}</p>
         </section>
     </div>
     <div class="btn-container">

@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from utils.recipesApp.factory import make_recipe
-# Create your views here.
+from .models import *
+
+
 def home(request):
-    context = {
-        'recipes': [make_recipe() for _ in range(9)],
-    }
+    recipes = Recipe.objects.all()
+    context = {'recipes': recipes}
     return render(request, 'recipesApp/pages/home.html', context)
 
 def recipe(request, id):
