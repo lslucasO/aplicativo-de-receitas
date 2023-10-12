@@ -6,6 +6,7 @@
     margin-top: 30px;
 }
 
+
 .card{
     margin-bottom: 60px;
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.362);
@@ -98,12 +99,14 @@
 }
 
 #topico{
+    text-decoration: none;
     font-size: 0.7em;
     text-decoration: none;
     color: rgb(29, 199, 255);
 }
 
 #data, #autor{
+    text-decoration: none;
     width: 80px;
     font-size: 0.7em;
     color: gray;

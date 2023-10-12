@@ -2,15 +2,23 @@
 <link rel="stylesheet" href="{% static 'recipesApp/css/card.css' %}">
 
 <div class="card">
-    <figure class="img-card-container">
-        <a href="{% url 'recipes-view' recipe.id %}"><img class="img-card" src="{{recipe.cover.url}}" alt=""></a>
-    </figure>
+    {% if recipe.cover %}
+        <figure class="img-card-container">
+            <a href="{% url 'recipes-view' recipe.id %}"><img class="img-card" src="{{recipe.cover.url}}" alt=""></a>
+        </figure>
+    {% endif %}
     <div class="info-container">
         <p class="titulo">{{recipe.title}}</p>
         <article class="topicos-container">
-            <p id="autor" class="info"><i class="fas fa-light fa-user"></i> {{recipe.author}} {{recipe.author.last_name}}</p>
+            {% if recipe.author.first_name and recipe.author.last_name %} 
+                <p id="autor" class="info"><i class="fas fa-light fa-user"></i> {{recipe.author.first_name}} {{recipe.author.last_name}}</p>
+            {% else %}
+                <p id="autor" class="info"><i class="fas fa-light fa-user"></i> {{recipe.author}}</p>
+            {% endif %}
             <p id="data" class="info"><i class="fas fa-light fa-calendar-days"></i> {{recipe.created_at|date:"d/m/Y às H:i:s"}}</p>
-            <p id="topico" class="info"><i class="fas fa-light fa-plate-wheat"></i> {{recipe.category.name}}</p>
+            <a style="text-decoration: none;" href="{% url 'category' recipe.category.id %}">
+                <p id="topico" class="info"><i class="fas fa-light fa-plate-wheat"></i> {{recipe.category.name}}</p>
+            </a>
         </article>
         <div class="descricao">
             <p>{{recipe.description}}</p>
