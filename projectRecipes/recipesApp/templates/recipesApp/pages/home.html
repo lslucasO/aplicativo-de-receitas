@@ -4,7 +4,11 @@
 
 {% block content-card %}
 {% for recipe in recipes %}
-{% include 'recipesApp/partials/card.html' %}
+    {% include 'recipesApp/partials/card.html' %}
+{% empty %}
+    <div style="text-align: center; padding-bottom: 20px; padding-top: 20px;"  class="center">
+        <h1>No Recipes found here 😟</h1>
+    </div>
 {% endfor %}
 {% endblock content-card %}
 
