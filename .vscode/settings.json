@@ -1,3 +1,8 @@
 {
-    "explorer.compactFolders": false
+    "explorer.compactFolders": false,
+    "python.testing.pytestArgs": [
+        "projectRecipes"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }

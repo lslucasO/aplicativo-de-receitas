@@ -5,9 +5,8 @@ from .models import *
 
 
 def home(request):
-    
+ 
     recipes = Recipe.objects.filter(is_published=True).order_by('-id')
-
     
     context = {'recipes': recipes}
     return render(request, 'recipesApp/pages/home.html', context)
