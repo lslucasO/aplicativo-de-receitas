@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="{% static 'recipesApp/css/search.css' %}">
 
 <div class="search-container">
-    <form action="" class="search-form">
-        <input class="search-input" name="search" type="search" placeholder="Digite aqui para buscar..." >
-        <button href="{% url 'search'  %}" class="search-btn"  type="submit"><i class="fas fa-search"></i></button>
+    <form action="{% url 'search' %}" method="GET" class="search-form">
+        <input class="search-input" name="q" type="search" placeholder="Digite aqui para buscar..." >
+        <button class="search-btn"  type="submit"><i class="fas fa-search"></i></button>
     </form>
 </div>
