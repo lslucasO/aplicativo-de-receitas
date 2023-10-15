@@ -24,7 +24,7 @@ def category(request, category_id):
     return render(request, 'recipesApp/pages/category.html', context)
 
 
-def search(request, busca):
+def search(request):
 
     return render(request, 'recipesApp/pages/search.html')
 
