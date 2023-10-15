@@ -9,7 +9,9 @@ def home(request):
  
     recipes = Recipe.objects.filter(is_published=True).order_by('-id')
     
-    context = {'recipes': recipes}
+    context = {'recipes': recipes,
+               'page_title': 'Home'
+    }
     return render(request, 'recipesApp/pages/home.html', context)
 
 
@@ -20,7 +22,7 @@ def category(request, category_id):
     )
      
     context = {'recipes': recipes,
-               'title': f'{recipes[0].category.name}'
+               'page_title': f'{recipes[0].category.name}'
     }
     return render(request, 'recipesApp/pages/category.html', context)
 
@@ -28,10 +30,8 @@ def category(request, category_id):
 def search(request):
     search_term = request.GET.get('q', '').strip()
     
-    
     if not search_term:
         raise Http404()
-       
        
     recipes = Recipe.objects.filter(
         Q(
@@ -40,14 +40,12 @@ def search(request):
         ),
         is_published = True
     ).order_by('-id')   
-
     
     context = {
         'search_term': search_term,
         'page_title': f'Search for "{search_term}"',
         'recipes': recipes
     }
-    
     
     return render(request, 'recipesApp/pages/search.html', context)
 
