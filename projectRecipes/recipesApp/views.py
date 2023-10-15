@@ -33,8 +33,9 @@ def search(request):
        
        
     recipes = Recipe.objects.filter(
-        title__icontains=search_term
-    )   
+        title__icontains=search_term,
+        description__icontains=search_term,
+    ).order_by('-id')   
     
     
     context = {
