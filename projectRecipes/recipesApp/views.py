@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
+from django.db.models import Q
 from utils.recipesApp.factory import make_recipe
 from django.http import Http404
 from .models import *
@@ -33,8 +34,8 @@ def search(request):
        
        
     recipes = Recipe.objects.filter(
-        title__icontains=search_term,
-        description__icontains=search_term,
+        Q(title__icontains=search_term) |
+        Q(description__icontains=search_term),
     ).order_by('-id')   
 
     

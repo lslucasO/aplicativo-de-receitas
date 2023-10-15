@@ -9,6 +9,9 @@
 <body>
     {% include 'recipesApp/partials/header.html' %}
     {% include 'recipesApp/partials/search.html' %}
+    {% block search %}
+
+    {% endblock search %}
     <div class="card-container">
         {% block content-card %}
         {% endblock content-card %}    

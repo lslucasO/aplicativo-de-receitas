@@ -2,7 +2,11 @@
 
 {% block title %} {{page_title}} {% endblock title %}
 
-
+{% block search %}
+    <div class="search-container">
+        <h2>O usuario pesquisou por "{{search_term}}"</h2>
+    </div>
+{% endblock search %}
 
 {% block content-card %}
 {% for recipe in recipes %}
