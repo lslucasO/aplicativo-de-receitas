@@ -36,7 +36,7 @@ def search(request):
         title__icontains=search_term,
         description__icontains=search_term,
     ).order_by('-id')   
-    
+
     
     context = {
         'search_term': search_term,
