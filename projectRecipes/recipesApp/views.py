@@ -8,7 +8,7 @@ from .models import *
 
 def home(request):
  
-    recipes = Recipe.objects.filter(is_published=True).order_by('-id')
+    recipes = Recipe.objects.filter(is_published=True)
     
     try:
         current_page = int(request.GET.get('page', 1))
