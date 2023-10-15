@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 from django.db.models import Q
-from utils.recipesApp.factory import make_recipe
+from utils.recipesApp.pagination import *
 from django.core.paginator import Paginator
 from django.http import Http404
 from .models import *
@@ -14,10 +14,20 @@ def home(request):
     paginator = Paginator(recipes, 9)
     page_object = paginator.get_page(current_page)
     
+    pagination_range = make_pagination_range(
+        paginator.page_range,
+        4,
+        current_page
+        )
     
-    context = {'recipes': page_object,
-               'page_title': 'Home'
+    context = {
+        'recipes': page_object,
+        'page_title': 'Home',
+        'pagination_range': pagination_range
     }
+    
+    
+    
     return render(request, 'recipesApp/pages/home.html', context)
 
 

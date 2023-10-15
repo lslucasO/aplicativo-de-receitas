@@ -1,13 +1,12 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'recipesApp/css/pagination.css' %}">
+
 {% if recipes.has_other_pages %}
     <div class="pagination-container">
         <span>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
+            {% for page in pagination_range %}
+                <a href="#">{{page}}</a>
+            {%%}
         </span>
     </div>
 {% endif %}
