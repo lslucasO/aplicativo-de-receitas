@@ -14,6 +14,7 @@ def home(request):
     paginator = Paginator(recipes, 9)
     page_object = paginator.get_page(current_page)
     
+    
     context = {'recipes': page_object,
                'page_title': 'Home'
     }
