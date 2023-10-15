@@ -10,3 +10,7 @@ a{
 a:hover{
     text-decoration: underline;
 }
+
+.pagination-container{
+    display: flex;
+}

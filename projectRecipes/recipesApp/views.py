@@ -31,7 +31,6 @@ def home(request):
     }
     
     
-    
     return render(request, 'recipesApp/pages/home.html', context)
 
 
