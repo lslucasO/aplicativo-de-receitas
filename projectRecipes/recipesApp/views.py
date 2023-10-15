@@ -33,7 +33,7 @@ def search(request):
        
        
     recipes = Recipe.objects.filter(
-        title=search_term
+        title__icontains=search_term
     )   
     
     

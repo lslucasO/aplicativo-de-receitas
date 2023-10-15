@@ -5,9 +5,6 @@
 
 
 {% block content-card %}
-<div class="search-container">
-    <h2>O usuario pesquisou por {{search_term}}</h2>
-</div>
 {% for recipe in recipes %}
     {% include 'recipesApp/partials/card.html' %}
 {% empty %}
