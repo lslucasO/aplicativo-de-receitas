@@ -10,9 +10,9 @@ def home(request):
  
     recipes = Recipe.objects.filter(is_published=True).order_by('-id')
     
-    
+    current_page = request.GET.get('page', 1)
     paginator = Paginator(recipes, 9)
-    page_object = paginator.get_page(1)
+    page_object = paginator.get_page(current_page)
     
     context = {'recipes': page_object,
                'page_title': 'Home'
