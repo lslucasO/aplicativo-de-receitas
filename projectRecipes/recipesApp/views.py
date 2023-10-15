@@ -24,6 +24,11 @@ def category(request, category_id):
     return render(request, 'recipesApp/pages/category.html', context)
 
 
+def search(request, busca):
+
+    return render(request, 'recipesApp/pages/search.html')
+
+
 def recipe(request, id):
     
     recipes = get_object_or_404(
