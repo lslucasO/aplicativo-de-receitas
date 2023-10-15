@@ -4,9 +4,9 @@
 {% if recipes.has_other_pages %}
     <div class="pagination-container">
         <span>
-            {% for page in pagination_range %}
-                <a href="#">{{page}}</a>
-            {%%}
+            {% for page in pagination_range.pagination %}
+                <a href="?page={{page}}">{{page}}</a>
+            {% endfor %}
         </span>
     </div>
 {% endif %}
