@@ -3,7 +3,11 @@ span{
     gap: 10px;
 }
 
-a{
+a.page-item{
+    text-align: center;
+    width: 30px;
+    background-color: rgb(142, 210, 233);
+    color: white;
     text-decoration: none;
 }
 

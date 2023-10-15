@@ -4,12 +4,12 @@
 {% if recipes.has_other_pages %}
     <div class="pagination-container">
         {% if pagination_range.first_page_out_of_range %}
-            <a href="?page=1">1</a>
+            <a class="page-item" href="?page=1">1</a>
             <span>...</span>
         {% endif %}
         <span>
             {% for page in pagination_range.pagination %}
-                <a href="?page={{page}}">{{page}}</a>
+                <a class="page-item" href="?page={{page}}">{{page}}</a>
             {% endfor %}
         </span>
     </div>
