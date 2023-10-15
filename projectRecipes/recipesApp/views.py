@@ -25,13 +25,26 @@ def category(request, category_id):
 
 
 def search(request):
-    search_term = request.GET.get('q')
+    search_term = request.GET.get('q', '').strip()
+    
     
     if not search_term:
         raise Http404()
+       
+       
+    recipes = Recipe.objects.filter(
+        title=search_term
+    )   
     
     
-    return render(request, 'recipesApp/pages/search.html')
+    context = {
+        'search_term': search_term,
+        'page_title': f'Search for "{search_term}"',
+        'recipes': recipes
+    }
+    
+    
+    return render(request, 'recipesApp/pages/search.html', context)
 
 
 def recipe(request, id):

@@ -3,7 +3,7 @@
 
 <div class="search-container">
     <form action="{% url 'search' %}" method="GET" class="search-form">
-        <input class="search-input" name="q" required type="search" placeholder="Digite aqui para buscar..." >
+    <input class="search-input" name="q" value="{{search_term}}" required type="search" placeholder="Digite aqui para buscar..." >
         <button class="search-btn"  type="submit"><i class="fas fa-search"></i></button>
     </form>
 </div>
