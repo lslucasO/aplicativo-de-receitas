@@ -34,7 +34,7 @@ def home(request):
         'pagination_range': pagination_range
     }
     
-    messages.error(request, 'TU TA VENDO COISA AI')
+    messages.success(request, 'Usuario registrado com sucesso.')
     
     return render(request, 'recipesApp/pages/home.html', context)
 

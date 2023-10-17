@@ -3,10 +3,10 @@
 
 {% block messages %}
     {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-                {{message}}
-            {% endfor %}
-        </div>
+        {% for message in messages %}
+            <div class="message-container">
+                <div class="message {{message.tags}}">{{message}}</div>
+            </div>
+        {% endfor %}
     {% endif %}
 {% endblock messages %}
