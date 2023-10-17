@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{% static 'authors/css/form.css'%}">
 
 <div class="form-container">
-    <form action="" method="POST">
+    <form action="{% url 'create' %}" method="POST">
         {% csrf_token %}
         <h2 class="title" >{{page_title}} | Register</h2>
         <div class="form-content">
@@ -19,7 +19,7 @@
         </div>
     
         <div class="form-group">
-            <button type="submit">Send</button>
+            <a href=""><button type="submit">Send</button></a>
         </div>
     </form>
 </div>
