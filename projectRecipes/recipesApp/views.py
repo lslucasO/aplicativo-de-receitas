@@ -34,9 +34,6 @@ def home(request):
         'pagination_range': pagination_range
     }
     
-    if request.GET.get('show'):
-        messages.success(request, 'TESTE, DEU CERTO')
-    
     
     
     return render(request, 'recipesApp/pages/home.html', context)
@@ -55,6 +52,9 @@ def category(request, category_id):
 
 
 def search(request):
+    messages.success(request, 'TA PESQUISANO AI')
+    
+    
     search_term = request.GET.get('q', '').strip()
     
     if not search_term:

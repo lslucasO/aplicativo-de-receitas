@@ -2,6 +2,17 @@
 
 {% block title %} {{page_title}} {% endblock title %}
 
+
+{% block messages %}
+    <div class="message-container">
+        {% if messages %}
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock messages %}
+
 {% block content-card %}
 {% for recipe in recipes %}
     {% include 'recipesApp/partials/card.html' %}
