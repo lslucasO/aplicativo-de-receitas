@@ -52,7 +52,7 @@ def search(request):
     if not search_term:
         raise Http404()
        
-
+       
     recipes = Recipe.objects.filter(
         Q(
             Q(title__icontains=search_term) |
@@ -61,10 +61,25 @@ def search(request):
         is_published = True
     ).order_by('-id')   
     
+    current_page = int(request.GET.get('page', 1))
+    
+    paginator = Paginator(recipes, 9)
+    page_object = paginator.get_page(current_page)
+    
+    pagination_range = make_pagination_range(
+        paginator.page_range,
+        4,
+        current_page
+    )
+
+    
+    
     context = {
         'search_term': search_term,
         'page_title': f'Search for "{search_term}"',
-        'recipes': recipes
+        'recipes': page_object,
+        'additional_url_query': search_term,
+        'pagination_range': pagination_range
     }
     
     return render(request, 'recipesApp/pages/search.html', context)
