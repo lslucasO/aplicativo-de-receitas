@@ -4,6 +4,8 @@ from django.http import Http404
 from django.contrib import messages
 
 def register_view(request):
+    request.session['number'] = request.session.get('number') or 1
+    request.session['number'] += 1
     
     if request.POST:
         form = RegisterForm(request.POST)

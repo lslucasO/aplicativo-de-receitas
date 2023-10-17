@@ -4,7 +4,7 @@
 <div class="form-container">
     <form action="{% url 'create' %}" method="POST">
         {% csrf_token %}
-        <h2 class="title" >{{page_title}} | Register</h2>
+        <h2 class="title" >{{page_title}} | Register | {{request.session.number}}</h2>
         <div class="form-content">
             {% for field in form %}
                 <div class="form-group">
