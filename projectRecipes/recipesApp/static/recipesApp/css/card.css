@@ -1,7 +1,7 @@
 .card-container{
-    margin-left: 50px;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
     display: grid;
+
     padding: 40px;
     margin-top: 10px;
 }
@@ -156,4 +156,11 @@
     width: 550px;
     font-size: 0.8em;
     color: gray;
+}
+
+
+@media (max-width: 600px){
+    .card-container{
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
 }
