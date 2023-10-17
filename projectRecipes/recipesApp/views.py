@@ -6,7 +6,7 @@ from django.http import Http404
 from .models import *
 import os
 
-PER_PAGE = os.environ.get('PER_PAGE')
+PER_PAGE = int(os.environ.get('PER_PAGE'))
 
 
 def home(request):
