@@ -34,7 +34,7 @@ def home(request):
         'pagination_range': pagination_range
     }
     
-    messages.success(request, 'Usuario registrado com sucesso.')
+    #messages.success(request, 'Usuario registrado com sucesso.')
     
     return render(request, 'recipesApp/pages/home.html', context)
 
