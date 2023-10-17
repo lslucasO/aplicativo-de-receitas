@@ -5,7 +5,8 @@ def register_view(request):
     form = RegisterForm()
     
     context = {
-        'form': form
+        'form': form,
+        'page_title': 'Authors'
     }
     
     return render(request, 'authors/pages/register.html', context)
