@@ -34,7 +34,7 @@ def home(request):
         'pagination_range': pagination_range
     }
     
-    
+    messages.error(request, 'TU TA VENDO COISA AI')
     
     return render(request, 'recipesApp/pages/home.html', context)
 
@@ -52,8 +52,6 @@ def category(request, category_id):
 
 
 def search(request):
-    messages.success(request, 'TA PESQUISANO AI')
-    
     
     search_term = request.GET.get('q', '').strip()
     
