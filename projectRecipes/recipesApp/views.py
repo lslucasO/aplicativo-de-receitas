@@ -3,6 +3,7 @@ from django.db.models import Q
 from utils.recipesApp.pagination import *
 from django.core.paginator import Paginator
 from django.http import Http404
+from django.contrib import messages
 from .models import *
 import os
 
@@ -32,6 +33,10 @@ def home(request):
         'page_title': 'Home',
         'pagination_range': pagination_range
     }
+    
+    if request.GET.get('show'):
+        messages.success(request, 'TESTE, DEU CERTO')
+    
     
     
     return render(request, 'recipesApp/pages/home.html', context)
