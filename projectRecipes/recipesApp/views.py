@@ -4,8 +4,9 @@ from utils.recipesApp.pagination import *
 from django.core.paginator import Paginator
 from django.http import Http404
 from .models import *
+import os
 
-PER_PAGES = 9
+PER_PAGE = os.environ.get('PER_PAGE')
 
 
 def home(request):
@@ -17,7 +18,7 @@ def home(request):
     except ValueError:
         current_page = 1
         
-    paginator = Paginator(recipes, PER_PAGES)
+    paginator = Paginator(recipes, PER_PAGE)
     page_object = paginator.get_page(current_page)
     
     pagination_range = make_pagination_range(
@@ -65,7 +66,7 @@ def search(request):
     
     current_page = int(request.GET.get('page', 1))
     
-    paginator = Paginator(recipes, PER_PAGES)
+    paginator = Paginator(recipes, PER_PAGE)
     page_object = paginator.get_page(current_page)
     
     pagination_range = make_pagination_range(
