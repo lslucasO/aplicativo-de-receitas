@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'recipesApp/css/message.css' %}">
+
+{% block messages %}
+    {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock messages %}

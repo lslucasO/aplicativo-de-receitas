@@ -1,15 +1,11 @@
 {% extends 'global/base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'recipesApp/css/home.css' %}">
 
 {% block title %}  {{page_title}} {% endblock title %}
 
 {% block messages %}
-    {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-                {{message}}
-            {% endfor %}
-        </div>
-    {% endif %}
+    {% include 'recipesApp/partials/message.html' %}
 {% endblock messages %}
 
 {% block content-card %}
