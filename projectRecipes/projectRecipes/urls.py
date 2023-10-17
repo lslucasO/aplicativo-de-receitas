@@ -6,7 +6,8 @@ from recipesApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('recipesApp.urls'))
+    path('', include('recipesApp.urls')),
+    path('authors/', include('authors.urls'))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
