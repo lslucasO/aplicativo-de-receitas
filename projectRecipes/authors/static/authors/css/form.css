@@ -1,5 +1,5 @@
 .form-container{
-    max-width: 1000px;
+
     margin: auto;
     padding-top: 40px;
     display: flex;
@@ -8,12 +8,35 @@
 
 .form-content{
     /*grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));*/
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 320px 320px ;
     display: grid;
 }
+
+.form-content input{
+    border-radius: 3px;
+    padding: 5px;
+    width: 100%;
+}
+
+.form-group{
+    
+    padding: 20px;
+}
+
+.form-group button{
+    
+    padding: 5px;
+    width: 100px;
+    cursor: pointer;
+}
+
 
 .title{
     margin-bottom: 20px;
     font-size: 1.8em;
     text-align: center;
+}
+
+.help-text{
+    font-size: 0.8em;
 }
