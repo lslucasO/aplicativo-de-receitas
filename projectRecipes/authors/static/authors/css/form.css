@@ -1,14 +1,16 @@
-.form-container{
 
+.form-container{
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.536);
+    
+    max-width: 800px;
     margin: auto;
     padding-top: 40px;
-    display: flex;
     justify-content: center;
 }
 
 .form-content{
     /*grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));*/
-    grid-template-columns: 320px 320px ;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     display: grid;
 }
 
