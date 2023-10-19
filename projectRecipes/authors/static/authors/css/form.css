@@ -24,9 +24,10 @@
 }
 
 .form-group button{
-    
+    background-color: black;
+    color: white;
     padding: 5px;
-    width: 100px;
+    width: 70px;
     cursor: pointer;
 }
 
@@ -39,4 +40,9 @@
 
 .help-text{
     font-size: 0.8em;
+}
+
+.errorlist{
+    color: rgba(255, 0, 0, 0.741);
+    font-size: 0.95em;
 }
