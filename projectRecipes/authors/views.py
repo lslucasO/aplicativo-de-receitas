@@ -30,5 +30,5 @@ def register_create(request):
     request.session['register_form_data'] = POST
     form = RegisterForm(POST)
     
-   
+   # Redirecionando para a view de registro
     return redirect('register')
