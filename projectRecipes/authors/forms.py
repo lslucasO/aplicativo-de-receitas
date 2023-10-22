@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 
 class RegisterForm(forms.ModelForm):
     class Meta:
+        # Modelo padrão de form do Django
+        
         model = User
         fields = [
             'first_name',
@@ -12,3 +14,26 @@ class RegisterForm(forms.ModelForm):
             'email',
             'password',       
         ]
+        
+        # Da pra mudar o nome dos labels
+        
+        labels = {
+            'username': 'Nome de Usuário',
+        }
+        
+        
+        # Textos de ajuda para o usuario
+        
+        help_texts = {
+            'email': 'O e-mail precisa ser válido!',
+            'first_name': 'teste'
+        }
+        
+        
+        # Mensagens de erro para o usuario
+        
+        error_messages = {
+            'username': {
+                'required': 'Esse campo é obrigatório'
+            }
+        }

@@ -94,12 +94,13 @@ def search(request):
 def recipe(request, id):
     
     recipes = get_object_or_404(
-        Recipe, 
+        Recipe,
         pk = id,
-        is_published=True,
+        is_published = True
     )
     
     context = {
         'recipe': recipes,
     }
+    
     return render(request, 'recipesApp/pages/recipes-view.html', context)
