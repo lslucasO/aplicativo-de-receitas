@@ -7,33 +7,33 @@ def add_attr(field, attr_name, attr_new_val):
 
 
 def add_placeholder(field, placeholder_val):
-    field.widget.attrs['placeholder'] = placeholder_val
+    add_attr(field, 'placeholder', placeholder_val)
 
 
 class RegisterForm(forms.ModelForm):
+    # Adicionando itens diretamente na classe super
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         add_placeholder(self.fields['username'], 'Seu nome de usuario')
-        add_placeholder(self.fields['email'], 'Seu nome de usuario')
-        add_placeholder(self.fields['first_name'],'Seu nome de usuario')
+        add_placeholder(self.fields['email'], 'Seu e-mail')
+        add_placeholder(self.fields['first_name'], 'Ex: Lucas')
+        add_placeholder(self.fields['last_name'], 'Ex: Santana')
+        add_placeholder(self.fields['password'], 'Sua senha deve ser forte')
+        add_attr(self.fields['username'], 'css', 'a-css-class')
+        
+        
+        
     
-    password = forms.CharField(
-        required=True,
-        widget = forms.PasswordInput(attrs={
-            'placeholder': 'Sua senha'
-        }),
-        error_messages= {
-            'required': 'passord must not be empty'
-        }
-    )
-    
-    password2 = forms.CharField(
-        required=True,
-        widget = forms.PasswordInput(attrs={
-            'placeholder': 'Repita sua senha'
-        })
-    )
-    
+    # password = forms.CharField(
+    #     required=True,
+    #     widget = forms.PasswordInput(attrs={
+    #         'placeholder': 'Sua senha'
+    #     }),
+    #     error_messages= {
+    #         'required': 'passord must not be empty'
+    #     }
+    # )
+
     class Meta:
         # Modelo padrão de form do Django
         
