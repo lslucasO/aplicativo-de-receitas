@@ -37,3 +37,15 @@ class RegisterForm(forms.ModelForm):
                 'required': 'Esse campo é obrigatório'
             }
         }
+        
+        # É possivel configurar os atributos do formulário também
+        
+        widgets = {
+            'first_name': forms.TextInput(attrs={
+                'placeholder': 'Digite seu nome aqui...'
+            }),
+            
+            'password': forms.PasswordInput(attrs={
+                'placeholder': 'Digite sua senha aqui...'
+            })
+        }
