@@ -35,13 +35,13 @@ class RegisterForm(forms.ModelForm):
         add_placeholder(self.fields['first_name'], 'Ex: Lucas')
         add_placeholder(self.fields['last_name'], 'Ex: Santana')
         add_placeholder(self.fields['password'], 'Sua senha deve ser forte')
+        add_placeholder(self.fields['confirm_password'], 'Repita sua senha')
         add_attr(self.fields['username'], 'css', 'a-css-class')
         
 
     confirm_password = forms.CharField(
         required=True,
         widget = forms.PasswordInput(attrs={
-            'placeholder': 'Sua senha',
         }),
         validators=[strong_password]
     )
@@ -86,41 +86,11 @@ class RegisterForm(forms.ModelForm):
         
         widgets = {
             'first_name': forms.TextInput(attrs={
-                'placeholder': 'Digite seu nome aqui...'
             }),
             'password': forms.PasswordInput(attrs={  
             })
 
         }
-    
-    
-    def clean_password(self):
-        # Validando campos especificos do formulário
-        data = self.cleaned_data.get('password')
-        
-        if 'atenção' in data:
-            raise ValidationError(
-                'Não digite essa palavra no formulário',
-                code='invalid',
-                #params={ 'value': 'atenção' }
-            )
-        else:
-            return data  
-        
-        
-    def clean_first_name(self):
-        # Validando campos especificos do formulário
-        data = self.cleaned_data.get('first_name')
-        
-        if 'Lucas Santana' in data:
-            raise ValidationError(
-                'Não digite essa %(value)s no formulário',
-                code='invalid',
-                params={ 'value': '"Lucas Santana"' }
-            )
-        else:
-            return data  
-        
     
     def clean(self):
         # Validando os campos de senha, se são iguais.
@@ -142,4 +112,34 @@ class RegisterForm(forms.ModelForm):
                 'password': password_confirmation_error,
                 },
             )
+    
+    
+    # def clean_password(self):
+    #     # Validando campos especificos do formulário
+    #     data = self.cleaned_data.get('password')
+        
+    #     if 'atenção' in data:
+    #         raise ValidationError(
+    #             'Não digite essa palavra no formulário',
+    #             code='invalid',
+    #             #params={ 'value': 'atenção' }
+    #         )
+    #     else:
+    #         return data  
+        
+        
+    # def clean_first_name(self):
+    #     # Validando campos especificos do formulário
+    #     data = self.cleaned_data.get('first_name')
+        
+    #     if 'Lucas Santana' in data:
+    #         raise ValidationError(
+    #             'Não digite essa %(value)s no formulário',
+    #             code='invalid',
+    #             params={ 'value': '"Lucas Santana"' }
+    #         )
+    #     else:
+    #         return data  
+        
+    
     

@@ -13,10 +13,9 @@ def register_view(request):
 
     context = {
         'form': form,
-        'page_title': 'Authors'
+        'page_title': 'Register'
     }
     
-
     return render(request, 'authors/pages/register.html', context)
 
 
@@ -24,14 +23,14 @@ def register_create(request):
     
     if not request.POST:
         raise Http404()
-    
-    
+
     POST = request.POST 
     # Salvando os dados do usuario por sessão
     request.session['register_form_data'] = POST
     form = RegisterForm(POST)
     
     if form.is_valid():
+        # Salvando usuario no banco de dados
         form.save()
         messages.success(request, 'Your user is created, please log in.')
         
