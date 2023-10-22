@@ -23,17 +23,17 @@ class RegisterForm(forms.ModelForm):
         add_attr(self.fields['username'], 'css', 'a-css-class')
         
         
-        
     
-    # password = forms.CharField(
-    #     required=True,
-    #     widget = forms.PasswordInput(attrs={
-    #         'placeholder': 'Sua senha'
-    #     }),
-    #     error_messages= {
-    #         'required': 'passord must not be empty'
-    #     }
-    # )
+    
+    password2 = forms.CharField(
+        required=True,
+        widget = forms.PasswordInput(attrs={
+            'placeholder': 'Sua senha',
+        }),
+        error_messages= {
+            'required': 'passord must not be empty'
+        }
+    )
 
     class Meta:
         # Modelo padrão de form do Django
@@ -44,7 +44,7 @@ class RegisterForm(forms.ModelForm):
             'last_name',
             'username',
             'email',
-            'password',       
+            'password',     
         ]
         
         
@@ -107,3 +107,17 @@ class RegisterForm(forms.ModelForm):
             )
         else:
             return data  
+        
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        
+        password = cleaned_data.get('password')
+        password2 = cleaned_data.get('password2')
+        
+        if password != password2:
+            raise ValidationError(
+                'As senhas não são iguais',
+                code='invalid',
+            )
+    

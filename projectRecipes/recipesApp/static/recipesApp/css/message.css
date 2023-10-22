@@ -37,3 +37,9 @@
     background: var(--color-success-light);
     color: var(--color-success-dark);
   }
+
+.message-error {
+    border: 1px solid var(--color-error-dark);
+    background: var(--color-error-light);
+    color: var(--color-error-dark);
+}

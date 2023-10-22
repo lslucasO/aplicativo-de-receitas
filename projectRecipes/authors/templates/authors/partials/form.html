@@ -18,6 +18,15 @@
             {% endfor %}
         </div>
     
+        {% if form.erros %}
+            <div class="form-content-error">
+                <div class="message message-error">
+                    Seu formulário possui erros, por favor corrija-os!
+                </div>
+            </div>
+        {% endif %}
+
+
         <div class="form-group">
             <a href=""><button type="submit">Send</button></a>
         </div>
