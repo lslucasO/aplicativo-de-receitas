@@ -31,5 +31,11 @@ def register_create(request):
     request.session['register_form_data'] = POST
     form = RegisterForm(POST)
     
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Your user is created, please log in.')
+        
+        del(request.session['register_form_data'])
+    
    # Redirecionando para a view de registro
     return redirect('register')
