@@ -47,6 +47,7 @@ class RegisterForm(forms.ModelForm):
             'password',       
         ]
         
+        
         # Da pra mudar o nome dos labels
         
         # labels = {
@@ -79,6 +80,7 @@ class RegisterForm(forms.ModelForm):
 
         # }
     
+    
     def clean_password(self):
         # Validando campos do formulário
         data = self.cleaned_data.get('password')
@@ -90,4 +92,18 @@ class RegisterForm(forms.ModelForm):
                 #params={ 'value': 'atenção' }
             )
         else:
-            return data
+            return data  
+        
+        
+    def clean_first_name(self):
+        # Validando campos do formulário
+        data = self.cleaned_data.get('first_name')
+        
+        if 'Lucas Santana' in data:
+            raise ValidationError(
+                'Não digite essa %(value)s no formulário',
+                code='invalid',
+                params={ 'value': '"Lucas Santana"' }
+            )
+        else:
+            return data  
