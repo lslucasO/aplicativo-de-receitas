@@ -1,6 +1,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'authors/css/form.css'%}">
 
+
 <div class="form-container">
     <form action="{% url 'create' %}" method="POST">
         {% csrf_token %}
@@ -18,7 +19,7 @@
             {% endfor %}
         </div>
     
-        {% if form.erros %}
+        {% if form.errors %}
             <div class="form-content-error">
                 <div class="message message-error">
                     Seu formulário possui erros, por favor corrija-os!

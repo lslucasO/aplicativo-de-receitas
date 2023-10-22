@@ -30,9 +30,6 @@ class RegisterForm(forms.ModelForm):
         widget = forms.PasswordInput(attrs={
             'placeholder': 'Sua senha',
         }),
-        error_messages= {
-            'required': 'passord must not be empty'
-        }
     )
 
     class Meta:
@@ -117,7 +114,9 @@ class RegisterForm(forms.ModelForm):
         
         if password != password2:
             raise ValidationError(
-                'As senhas não são iguais',
-                code='invalid',
+                {
+                'password': 'As senhas não são iguais',
+                'password2': 'As senhas não são iguais',
+                }
             )
     

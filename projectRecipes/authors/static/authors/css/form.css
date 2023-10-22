@@ -14,6 +14,11 @@
     display: grid;
 }
 
+.form-content-error{
+    display: flex;
+    justify-content: center;
+}
+
 .form-content input{
     border-radius: 3px;
     padding: 5px;

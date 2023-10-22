@@ -1,10 +1,8 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'recipesApp/css/message.css' %}">
 
-{% if messages %}
-    {% for message in messages %}
-        <div class="message-container">
-            <div class="message {{message.tags}}">{{message}}</div>
-        </div>
-    {% endfor %}
-{% endif %}
+{% for message in messages %}
+    <div class="message-container">
+        <div class="message {{message.tags}}">{{message}}</div>
+    </div>
+{% endfor %}

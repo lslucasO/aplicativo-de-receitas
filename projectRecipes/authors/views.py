@@ -16,9 +16,7 @@ def register_view(request):
         'page_title': 'Authors'
     }
     
-    
-    messages.error(request, 'Ta errado ai')
-    
+
     return render(request, 'authors/pages/register.html', context)
 
 

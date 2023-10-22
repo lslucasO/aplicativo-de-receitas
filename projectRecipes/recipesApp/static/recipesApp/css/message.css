@@ -23,9 +23,8 @@
 
 .message{
     font-size: 0.9em;
-    text-align: center;
     width: 600px;
-    padding: 1rem;
+    padding: 12px;
     border-radius: 4px;
     border: 1px solid black;
     background: rgba(154, 154, 154, 0.255);
@@ -43,3 +42,5 @@
     background: var(--color-error-light);
     color: var(--color-error-dark);
 }
+
+
