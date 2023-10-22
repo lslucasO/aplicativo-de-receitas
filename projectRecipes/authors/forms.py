@@ -1,4 +1,5 @@
 from django import forms
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 
 def add_attr(field, attr_name, attr_new_val):
@@ -77,3 +78,16 @@ class RegisterForm(forms.ModelForm):
         #     }),
 
         # }
+    
+    def clean_password(self):
+        # Validando campos do formulário
+        data = self.cleaned_data.get('password')
+        
+        if 'atenção' in data:
+            raise ValidationError(
+                'Não digite essa palavra no formulário',
+                code='invalid',
+                #params={ 'value': 'atenção' }
+            )
+        else:
+            return data
