@@ -1,6 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+import re
 
 def add_attr(field, attr_name, attr_new_val):
     existing_attr = field.widget.attrs.get(attr_name, '')
@@ -10,6 +11,20 @@ def add_attr(field, attr_name, attr_new_val):
 def add_placeholder(field, placeholder_val):
     add_attr(field, 'placeholder', placeholder_val)
 
+
+
+def strong_password(password):
+    regex = re.compile(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$')
+
+    if not regex.match(password):
+        raise ValidationError(
+            ('Password must have at least one uppercase letter, '
+            'one lowercase letter and one number. The length should be '
+            'at least 8 characters.',  ),
+            code='Invalid'
+        )
+        
+        
 
 class RegisterForm(forms.ModelForm):
     # Adicionando itens diretamente na classe super
@@ -22,14 +37,13 @@ class RegisterForm(forms.ModelForm):
         add_placeholder(self.fields['password'], 'Sua senha deve ser forte')
         add_attr(self.fields['username'], 'css', 'a-css-class')
         
-        
-    
-    
-    password2 = forms.CharField(
+
+    confirm_password = forms.CharField(
         required=True,
         widget = forms.PasswordInput(attrs={
             'placeholder': 'Sua senha',
         }),
+        validators=[strong_password]
     )
 
     class Meta:
@@ -70,12 +84,14 @@ class RegisterForm(forms.ModelForm):
         
         # É possivel configurar os atributos do formulário também
         
-        # widgets = {
-        #     'first_name': forms.TextInput(attrs={
-        #         'placeholder': 'Digite seu nome aqui...'
-        #     }),
+        widgets = {
+            'first_name': forms.TextInput(attrs={
+                'placeholder': 'Digite seu nome aqui...'
+            }),
+            'password': forms.PasswordInput(attrs={  
+            })
 
-        # }
+        }
     
     
     def clean_password(self):
@@ -112,17 +128,18 @@ class RegisterForm(forms.ModelForm):
         cleaned_data = super().clean()
         
         password = cleaned_data.get('password')
-        password2 = cleaned_data.get('password2')
+        confirm_password = cleaned_data.get('confirm_password')
         
-        if password != password2:
+        if password != confirm_password:
             password_confirmation_error = ValidationError(
-                'As suas senhas não são iguais.',
+                'Password must have at least one uppercase letter, '
+                'one lowercase letter and one number. The length should be '
+                'at least 8 characters.',
                 code='invalid'
             )
             raise ValidationError(
                 {
                 'password': password_confirmation_error,
-                'password2': password_confirmation_error,
-                }
+                },
             )
     
