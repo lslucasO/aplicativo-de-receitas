@@ -79,7 +79,7 @@ class RegisterForm(forms.ModelForm):
     
     
     def clean_password(self):
-        # Validando campos do formulário
+        # Validando campos especificos do formulário
         data = self.cleaned_data.get('password')
         
         if 'atenção' in data:
@@ -93,7 +93,7 @@ class RegisterForm(forms.ModelForm):
         
         
     def clean_first_name(self):
-        # Validando campos do formulário
+        # Validando campos especificos do formulário
         data = self.cleaned_data.get('first_name')
         
         if 'Lucas Santana' in data:
@@ -107,6 +107,8 @@ class RegisterForm(forms.ModelForm):
         
     
     def clean(self):
+        # Validando os campos de senha, se são iguais.
+        
         cleaned_data = super().clean()
         
         password = cleaned_data.get('password')
@@ -114,12 +116,13 @@ class RegisterForm(forms.ModelForm):
         
         if password != password2:
             password_confirmation_error = ValidationError(
-                'As suas senhas não são iguais.'
+                'As suas senhas não são iguais.',
+                code='invalid'
             )
             raise ValidationError(
                 {
-                'password': 'As senhas não são iguais',
-                'password2': 'As senhas não são iguais',
+                'password': password_confirmation_error,
+                'password2': password_confirmation_error,
                 }
             )
     
