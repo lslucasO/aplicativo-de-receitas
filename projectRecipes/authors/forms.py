@@ -113,6 +113,9 @@ class RegisterForm(forms.ModelForm):
         password2 = cleaned_data.get('password2')
         
         if password != password2:
+            password_confirmation_error = ValidationError(
+                'As suas senhas não são iguais.'
+            )
             raise ValidationError(
                 {
                 'password': 'As senhas não são iguais',
