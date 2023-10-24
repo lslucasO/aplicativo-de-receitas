@@ -68,11 +68,12 @@ class RegisterForm(forms.ModelForm):
         
         # Textos de ajuda para o usuario
         
-        # help_texts = {
-        #     'email': 'O e-mail precisa ser válido!',
-        #     'first_name': 'teste'
-        # }
-        
+        help_texts = {
+            'password': '''
+                Password must have at least one uppercase letter,
+                one lowercase letter and one number. The length should be at least 8 characters.
+            '''
+        }
         
         # Mensagens de erro para o usuario
         
