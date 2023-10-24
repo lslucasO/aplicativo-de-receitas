@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from .forms import RegisterForm, LoginForm
 from django.urls import reverse
 from django.http import Http404
 from django.contrib import messages
 
+    
 def register_view(request):
     # Pega quantas vezes o usuario acessou aquela página
     # request.session['number'] = request.session.get('number') or 1
@@ -46,7 +47,11 @@ def register_create(request):
 
 def login_view(request):
     
+    form = LoginForm()
+    
     context = {
+        'form': form,
+        'form_action': reverse('login_create'),
         'page_title': 'Login'
     }
     
