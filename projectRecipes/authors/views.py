@@ -42,3 +42,12 @@ def register_create(request):
     
    # Redirecionando para a view de registro
     return redirect('register')
+
+
+def login_view(request):
+    
+    context = {
+        'page_title': 'Login'
+    }
+    
+    return render(request, 'authors/pages/login.html', context)

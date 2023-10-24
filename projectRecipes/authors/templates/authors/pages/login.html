@@ -1,0 +1,14 @@
+{% extends 'global/base.html' %}
+
+{% block title %} {{page_title}} {% endblock title %}
+
+{% if messages %}
+    {% block messages %}
+        {% include 'global/partials/message.html' %}
+    {% endblock messages %}
+{% endif %}
+
+{% block content %}
+    {% include 'global/partials/form.html' %}
+{% endblock content %}
+
