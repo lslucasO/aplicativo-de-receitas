@@ -14,7 +14,7 @@ def register_view(request):
 
     context = {
         'form': form,
-        'form_action': reverse('create'),
+        'form_action': reverse('register_create'),
         'page_title': 'Register'
     }
     
@@ -45,6 +45,15 @@ def register_create(request):
 
 
 def login_view(request):
+    
+    context = {
+        'page_title': 'Login'
+    }
+    
+    return render(request, 'authors/pages/login.html', context)
+
+
+def login_create(request):
     
     context = {
         'page_title': 'Login'
