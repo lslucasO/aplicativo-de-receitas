@@ -113,6 +113,19 @@ class RegisterForm(forms.ModelForm):
                 'password': password_confirmation_error,
                 },
             )
+            
+            
+    def clean_email(self):
+        email = self.cleaned_data.get('email', '')
+        exists = User.objects.filter(email=email)
+        
+        if exists:
+            raise ValidationError(
+                'User email already exists',
+                code='Invalid'
+            )
+        else:
+            return email
     
     
     # def clean_password(self):
