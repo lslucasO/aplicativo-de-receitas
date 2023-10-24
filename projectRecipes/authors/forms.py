@@ -116,6 +116,7 @@ class RegisterForm(forms.ModelForm):
             
             
     def clean_email(self):
+        # Checando se o email do usuario é unico na base de dados
         email = self.cleaned_data.get('email', '')
         exists = User.objects.filter(email=email)
         

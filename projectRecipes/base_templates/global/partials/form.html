@@ -3,7 +3,7 @@
 
 
 <div class="form-container">
-    <form action="{% url 'create' %}" method="POST">
+    <form action="{{form_action}}" method="POST">
         {% csrf_token %}
         <h2 class="title" >{{page_title}}</h2>
         <div class="form-content">
