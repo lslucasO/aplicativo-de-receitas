@@ -77,7 +77,7 @@ def login_create(request):
         
         if authenticated_user is not None:
             messages.success(request, 'You are logged in.')
-            login(authenticated_user)
+            login(request, authenticated_user)
         else:
             messages.error(request, 'Invalid credentials, please try again.')
 
