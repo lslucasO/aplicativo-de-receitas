@@ -3,6 +3,8 @@ from .forms import RegisterForm, LoginForm
 from django.urls import reverse
 from django.http import Http404
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
+
 
     
 def register_view(request):
@@ -59,6 +61,33 @@ def login_view(request):
 
 
 def login_create(request):
+    
+    if not request.POST:
+        raise Http404
+    
+    form = LoginForm(request.POST)
+    login_url = reverse('login')
+    
+    
+    if form.is_valid():
+        is_authenticated = authenticate(
+            username=form.cleaned_data.get('username', ''),
+            password=form.cleaned_data.get('password', ''),
+        )
+        
+        if is_authenticated is not None:
+            messages.success(request, 'You are logged in.')
+            return redirect(login_url)
+        else:
+            messages.error(request, 'Invalid credentials, please try again.')
+            return redirect(login_url)
+    
+    else:
+        messages.error(request, 'Error to validate form.')
+        
+    
+    
+    
     
     context = {
         'page_title': 'Login'
