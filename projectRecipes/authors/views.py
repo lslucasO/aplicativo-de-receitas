@@ -68,22 +68,24 @@ def login_create(request):
     form = LoginForm(request.POST)
     login_url = reverse('login')
     
-    
+    # Autenticando o usuario no sistema pelo form de Login
     if form.is_valid():
-        is_authenticated = authenticate(
+        authenticated_user = authenticate(
             username=form.cleaned_data.get('username', ''),
             password=form.cleaned_data.get('password', ''),
         )
         
-        if is_authenticated is not None:
+        if authenticated_user is not None:
             messages.success(request, 'You are logged in.')
-            return redirect(login_url)
+            login(authenticated_user)
         else:
             messages.error(request, 'Invalid credentials, please try again.')
-            return redirect(login_url)
+
     
     else:
         messages.error(request, 'Error to validate form.')
+        
+    return redirect(login_url)
         
     
     
