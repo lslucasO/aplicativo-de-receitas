@@ -9,6 +9,10 @@
         {% if request.user.is_authenticated %}
             <h3 style="text-align: center;">
                 You are logged in with {{request.user.username}}
+                Please,
+                <a href="{% url 'logout' %}">
+                    click here 
+                </a> to logout
             </h3>
         {% endif %}
         <div class="form-content">

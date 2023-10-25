@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.http import Http404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
     
@@ -94,6 +95,8 @@ def login_create(request):
     return render(request, 'authors/pages/login.html', context)
 
 
+# Função de logout do usuario
+@login_required(login_url='login', redirect_field_name='next')
 def logout_view(request):
     logout(request)
     return redirect(reverse('login'))
