@@ -81,19 +81,10 @@ def login_create(request):
             login(request, authenticated_user)
         else:
             messages.error(request, 'Invalid credentials, please try again.')
-
-    
     else:
         messages.error(request, 'Error to validate form.')
         
     return redirect(login_url)
-
-    context = {
-        'page_title': 'Login'
-    }
-    
-    return render(request, 'authors/pages/login.html', context)
-
 
 # Função de logout do usuario
 @login_required(login_url='login', redirect_field_name='next')

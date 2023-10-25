@@ -6,15 +6,6 @@
     <form action="{{form_action}}" method="POST">
         {% csrf_token %}
         <h2 class="title" >{{page_title}}</h2>
-        {% if request.user.is_authenticated %}
-            <h3 style="text-align: center;">
-                You are logged in with {{request.user.username}}
-                Please,
-                <a href="{% url 'logout' %}">
-                    click here 
-                </a> to logout
-            </h3>
-        {% endif %}
         <div class="form-content">
             {% for field in form %}
                 <div class="form-group">

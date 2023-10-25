@@ -9,6 +9,15 @@
 {% endif %}
 
 {% block content %}
+    {% if request.user.is_authenticated %}
+        <div style="text-align: center;">
+            You are logged in with {{request.user.username}}
+            Please,
+            <form action="{% url 'logout' %}" method='POST'>
+                <button type="submit">Click here</button>
+            </form> to logout.
+        </div>  
+    {% endif %}
     {% include 'global/partials/form.html' %}
 {% endblock content %}
 
