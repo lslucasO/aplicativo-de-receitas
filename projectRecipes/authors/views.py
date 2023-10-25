@@ -3,7 +3,7 @@ from .forms import RegisterForm, LoginForm
 from django.urls import reverse
 from django.http import Http404
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
     
@@ -44,7 +44,7 @@ def register_create(request):
         del(request.session['register_form_data'])
     
    # Redirecionando para a view de registro
-    return redirect('register')
+    return redirect(reverse('login'))
 
 
 def login_view(request):
@@ -86,13 +86,13 @@ def login_create(request):
         messages.error(request, 'Error to validate form.')
         
     return redirect(login_url)
-        
-    
-    
-    
-    
+
     context = {
         'page_title': 'Login'
     }
     
     return render(request, 'authors/pages/login.html', context)
+
+
+def logout_view(request):
+    logout(request)
