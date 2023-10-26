@@ -4,6 +4,7 @@
         <form action="{% url 'logout' %}" method='POST'>
             {% csrf_token %}
             Please
+            <input type="hidden" name="username" value="{{request.user.username}}">
             <button style="cursor: pointer;" type="submit">Click here</button>
             to logout.
         </form>   

@@ -84,10 +84,25 @@ def login_create(request):
     else:
         messages.error(request, 'Error to validate form.')
         
-    return redirect(login_url)
+    return redirect(reverse('dashboard'))
 
 # Função de logout do usuario
 @login_required(login_url='login', redirect_field_name='next')
 def logout_view(request):
+    
+    if not request.POST:
+        return redirect(reverse('login'))
+    
+    if request.POST.get('username') != request.user.username:
+        return redirect(reverse('login'))    
+    
     logout(request)
     return redirect(reverse('login'))
+
+
+@login_required(login_url='login', redirect_field_name='next')
+def dashboard(request):
+    context = {
+        'page_title': f'Dashboard | {request.user.username}'
+    }
+    return render(request, 'authors/pages/dashboard.html', context)
