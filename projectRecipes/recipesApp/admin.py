@@ -6,6 +6,8 @@ class CategoryAdmin(admin.ModelAdmin):
     
 
 class RecipeAdmin(admin.ModelAdmin):
+    # Exibe informações adicionais
+    
     list_display = [
         'id',
         'title',
@@ -14,10 +16,14 @@ class RecipeAdmin(admin.ModelAdmin):
         'author'
     ]
     
+    # Adiciona links as visualizações
+    
     list_display_links = [
         'title',
         'created_at'
     ]
+    
+    # Adiciona metodos de busca
     
     search_fields = [
         'id',
@@ -27,6 +33,7 @@ class RecipeAdmin(admin.ModelAdmin):
         'slug'
     ]
     
+    # Adiciona metodo de filtro 
     
     list_filter = [
         'category',
@@ -35,6 +42,7 @@ class RecipeAdmin(admin.ModelAdmin):
         'preparation_steps_is_html'
     ]
         
+    # Configura quantos itens por página serão exibidos na tabela ADMIN
     
     list_per_page = 10
     
@@ -42,9 +50,16 @@ class RecipeAdmin(admin.ModelAdmin):
         'is_published'
     ]
     
+    # Organiza como as informações são listadas por id
+    
     ordering = [
         '-id'
     ]
+    
+    # Adiciona slugs automatico
+    prepopulated_fields = {
+        'slug': ('title',)
+    }
     
     
 admin.site.register(Category, CategoryAdmin)
