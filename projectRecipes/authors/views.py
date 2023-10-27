@@ -97,6 +97,7 @@ def logout_view(request):
         return redirect(reverse('login'))    
     
     logout(request)
+    messages.success(request, 'Logged out succesfully')
     return redirect(reverse('login'))
 
 
