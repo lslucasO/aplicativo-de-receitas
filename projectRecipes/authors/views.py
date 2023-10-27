@@ -118,4 +118,19 @@ def dashboard(request):
     return render(request, 'authors/pages/dashboard.html', context)
 
 
+@login_required(login_url='login')
+def dashboard_recipe_edit(request, id):
+    
+    recipe = Recipe.objects.filter(
+        pk=id,
+        is_published=False,
+        author=request.user
+    )
+    
+    context = {
+        'page_title': 'Dashboard Edit',
+        'recipe': recipe,
+    }
+    
+    return render(request, 'authors/pages/dashboard_recipe.html', context)
 

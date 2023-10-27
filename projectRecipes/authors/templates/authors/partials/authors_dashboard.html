@@ -10,7 +10,7 @@
             <h2>Your Recipes</h2>
             <ul>
                 {% for recipe in recipes %}
-                    <li><a class="recipe-link" href="#">{{recipe.title}}</a></li>
+                    <li><a class="recipe-link" href="{% url 'dashboard_recipe_edit' recipe.id %}">{{recipe.title}}</a></li>
                 {% empty %}
                     <p>You do not have any recipes to show 😥</p>
                 {% endfor %}
