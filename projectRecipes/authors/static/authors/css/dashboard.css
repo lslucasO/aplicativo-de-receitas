@@ -1,0 +1,22 @@
+
+
+.dashboard-content .titulo{
+    text-align: center;
+}
+
+.recipes-list-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 80px;
+}
+
+.recipe-link{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+    margin-top: 5px;
+    text-align: left;
+}
+

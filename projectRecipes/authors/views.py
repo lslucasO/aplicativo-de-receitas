@@ -5,6 +5,7 @@ from django.http import Http404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from recipesApp.models import Recipe
 
 
     
@@ -103,7 +104,18 @@ def logout_view(request):
 
 @login_required(login_url='login', redirect_field_name='next')
 def dashboard(request):
+    
+    recipes = Recipe.objects.filter(
+        is_published = False,
+        author=request.user,
+    )
+    
     context = {
-        'page_title': f'Dashboard | {request.user.username}'
+        'recipes': recipes,
+        'page_title': f'Dashboard ({request.user.username})'
     }
+    
     return render(request, 'authors/pages/dashboard.html', context)
+
+
+

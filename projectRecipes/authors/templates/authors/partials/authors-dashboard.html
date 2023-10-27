@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'authors/css/dashboard.css' %}">
+
+
+<div class="dashboard-container">
+    <div class="dashboard-content">
+        <h1 class="titulo">{{ page_title }}</h1>
+        
+        <div class="recipes-list-container">
+            <h2>Your Recipes</h2>
+            <ul>
+                {% for recipe in recipes %}
+                    <li><a class="recipe-link" href="#">{{recipe.title}}</a></li>
+                {% empty %}
+                    <p>You do not have any recipes to show 😥</p>
+                {% endfor %}
+            </ul>
+        </div>
+    
+    </div>
+</div>
