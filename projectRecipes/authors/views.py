@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm, LoginForm
+
+from .forms import RegisterForm, LoginForm, AuthorRecipeForm
 from django.urls import reverse
 from django.http import Http404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from recipesApp.models import Recipe
+
 
 
     
@@ -125,11 +127,21 @@ def dashboard_recipe_edit(request, id):
         pk=id,
         is_published=False,
         author=request.user
+    ).first()
+    
+    if not recipe:
+        raise Http404()
+    
+    
+    form = AuthorRecipeForm(
+        request.POST or None,
+        instance=recipe
     )
     
     context = {
         'page_title': 'Dashboard Edit',
         'recipe': recipe,
+        'form': form,
     }
     
     return render(request, 'authors/pages/dashboard_recipe.html', context)
